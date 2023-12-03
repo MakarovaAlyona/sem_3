@@ -1,35 +1,18 @@
-﻿//Задайте массив из вещественных чисел с ненулевой дробной частью. Найдите разницу между максимальным и минимальным элементов массива
-    Console.Write("Введите количество элементов массива:");
-int a = Convert.ToInt32(Console.ReadLine());
-double[] randomArray = new double[a];
-
-void mas(int a)
-{
+﻿//Задайте массив на 10 целых чисел. Напишите программу, которая определяет количество чётных чисел в массиве
 Random rand = new Random();
-for (int i = 0; i < a; i++)
+int size = 10;
+int [] array = new int[size];
+for (int i=0; i< size; i++) {
+    array [i] = rand.Next (1,100);
+}
+int count = 0;
+for (int i=0; i<size; i++)
+if (array [i]%2 ==0)
 {
-randomArray[i] = rand.NextDouble();
-Console.Write("{0: 0.00}",randomArray[i]);
+     count++;
 }
-
-}
-
-double raz(double[] randomArray)
+foreach (int item in array)
 {
-double min = randomArray[0];
-double max = randomArray[0];
-int i = 1;
-while (i < randomArray.Length)
-{
-if (max<randomArray[i])
-max = randomArray[i];
-if (min>randomArray[i])
-min = randomArray[i];
- i++;
+    Console.Write (item + " ");
 }
-return max-min;
-}
-
-mas(a);
-Console.WriteLine("  Разница между max и min элементом массива ===>");
-Console.WriteLine("{0: 0.00}",raz(randomArray));
+Console.Write ($"----> {count}");
